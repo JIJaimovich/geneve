@@ -45,12 +45,19 @@
 
 
   const images = ref([
-    "/autocw.png",
-    "/desprazsa.png",
-    "/tapernoux.png",
-    "/h20.png",
-    "/sqs.png",
-    "/viamonte.png",
+    // "/autocw.png",
+    // "/desprazsa.png",
+    // "/tapernoux.png",
+    // "/h20.png",
+    // "/sqs.png",
+    // "/viamonte.png",
+    `${import.meta.env.BASE_URL}autocw.png`,
+    `${import.meta.env.BASE_URL}desprazsa.png`,
+    `${import.meta.env.BASE_URL}tapernoux.png`,
+    `${import.meta.env.BASE_URL}h20.png`,
+    `${import.meta.env.BASE_URL}sqs.png`,
+    `${import.meta.env.BASE_URL}/viamonte.png`,
+    
 
   ]);
   
