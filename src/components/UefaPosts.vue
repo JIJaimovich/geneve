@@ -27,9 +27,14 @@ const contents = [
 ]
 
 const imgs = [
-"/uefa4.jpg",
-"/uefa2.jpg",
-"/uefa3.jpg",
+`${import.meta.env.BASE_URL}uefa4.jpg`,
+`${import.meta.env.BASE_URL}uefa2.jpg`,
+`${import.meta.env.BASE_URL}uefa3.jpg`,
+
+
+// "/uefa4.jpg",
+// "/uefa2.jpg",
+// "/uefa3.jpg",
 ]
 
 </script>
