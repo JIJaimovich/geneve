@@ -1,0 +1,160 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+
+
+  
+  --app-primary-color: #DB1717;
+  --app-black-color: #281713;
+
+  --app-primary-border-color: rgb(148, 13, 13);
+
+  --app-txt-base-color: rgb(40, 39, 39);
+  --app-txt-inverted-base-color: rgb(230, 228, 228);
+  --app-txt-active-link-color: rgb(229, 24, 24);
+  --app-txt-link-color: rgb(230, 228, 228);
+
+
+  /* --surface-header-color:#1f2937; */
+  --surface-header-color:#1D1D1B;
+
+
+  /* --surface-banner-1: #9ca3af; */
+  --surface-banner-1: #e25555;
+
+
+  --surface-button-secondary: rgb(196, 196, 196);
+
+  --nav-height: 60px;
+
+}
+
+
+body, ul, li {
+  margin: 0;
+  padding: 0; 
+  list-style: none; 
+}
+
+/* , #app */
+body,  #app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  margin: 0; 
+}
+
+
+
+.page-container {
+   /* alto del header */
+  margin-top: var(--nav-height);    
+  
+}
+
+header {    
+  background-color: var(--surface-header-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  position: fixed;
+  top: 0;
+  left: 0; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 100%;
+  height: var(--nav-height);
+  
+  
+}
+main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  /* min-height: 90vh; */
+  height: 100%;
+  /* background-color: rgb(226, 226, 194); */
+  min-height: calc(100vh - 120px);
+  
+}
+
+footer {
+  background-color: #2A2525;
+  
+  /* margin-top: 4rem; */
+  min-height: 60px;
+  /* background-color: rgb(46, 131, 46); */
+  background-color: #343131;
+
+}
+
+
+li {
+  all: unset;
+  list-style: none;
+  
+}
+
+a {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+
+
+
+router-link {
+  all: unset; /* Resets all styles */
+  color: inherit;
+  cursor: pointer; /* Ensures it still looks clickable */
+}
+
+
+
+p, h2, h3, h4, span  {
+  line-height: normal;
+  margin: 0;
+}
+
+.fade-main-enter-active, .fade--main-leave-active {
+  
+  transition: opacity 0.6s ease;
+  position: absolute;
+  width: 100%; 
+  top: 0; 
+}
+.fade-main-enter-from, .fade-main-leave-to {
+  opacity: 0;
+}
+
+.fade-footer-enter-active, .fade-footer-leave-active {
+  
+  transition: opacity 0.1s ease;
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
+   
+}
+.fade-footer-enter-from, .fade-footer-leave-to {
+  opacity: 0;
+}
+
+
+.cart-icon{
+  width: 20px;
+  height: 20px;
+  
+ 
+}
+
+/* 
+flex flex-col max-w-[1100px] w-full mx-auto
+*/
