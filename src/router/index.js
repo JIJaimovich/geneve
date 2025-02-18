@@ -21,11 +21,13 @@ const routes = [
 
 
   { path: '/cart', component: Cart },
-  
 
 ];
+
+//history: createWebHashHistory(import.meta.env.BASE_URL),
+
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
