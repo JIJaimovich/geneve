@@ -1,11 +1,15 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 
 const props = defineProps({
     selectOptions: {
         type: Array,
-        default: [1, 2, 3]
+        default: ['2017-2018', '2013-2014',]
+    },
+    currentOption: {
+        type: String,
+        default: '2017-2018'
     }
 
 })
@@ -18,110 +22,117 @@ const optionSelected = ref('')
 
 let keyRandom = 1324
 
+const buttonStyle = computed(()=>{
+  if(isVisible.value){
+    return (`
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    `)
+  }else{
+    return (`
+    border-radius: 24px;
+    `)
+
+  }
+})
+
 function handleSelection(option){
-    emits('selectedValue', option)
-    optionSelected.value = option
+   
 }
+
 
 </script>
 
 
 <template>
-    <div class="select-container bg-neutral-300 rounded-lg"
+  <div class="flex relative select-container"
+  @mouseenter="isVisible=true"
+  @mouseleave="isVisible=false"
+  >
+    <button 
+   
     @click="isVisible=!isVisible"
-    :class="isVisible && 'select-active'"
     
+    :style="buttonStyle"
+    class="saison-button flex items-center gap-2">
+        <span class="text-lg text-white">Saison</span> 
+        <span class="text-lg text-white">{{ currentOption }}</span>
+        <img src="../../assets/chevron.svg" alt="chevron" class="w-[20px]">
+    </button> 
+    <div
+    v-if="isVisible"
+    class="options-container"
     >
-    <!-- <TransitionGroup name="slide"> -->
-            <div class="select-dropdown" :key="keyRandom+1" >
-                <slot></slot>
-            </div>
-            <Transition name="slide">
-            <div v-if="isVisible" class="select-options" :key="keyRandom+2">
-                <div 
-                @click="handleSelection(option)"
-                class="select-option" 
-                v-for="option in selectOptions">
-                    <span 
-                    :class="optionSelected === option && 'option-active'" 
-                    class="pl-16">{{ option }}</span>
-                </div>
-            </div>
-            </Transition>
-    <!-- </TransitionGroup> -->
-        </div>
+      <div 
+      class="date-option flex items-center gap-2"
+      @click="option !== currentOption && $emit('selectedValue', option)"
+      v-for="option in selectOptions">
+        <template v-if="option !== currentOption">
+          <span class="text-lg text-white">Saison</span> 
+          <span class="text-lg text-white">{{ option }}</span>
+          <img src="../../assets/date.svg" alt="chevron" class="w-[20px]">        
+        </template>    
+        <template v-else>
+          <span class="text-lg text-[#DB1717]">Saison</span> 
+          <span class="text-lg text-[#DB1717]">{{ option }}</span>
+          <img src="../../assets/dateAlt.svg" alt="chevron" class="w-[20px]">        
+        </template>      
+      </div>
+    </div>
+  </div>
+   
 </template>
 
 <style scoped>
-.select-container {
-    position: relative;
-    cursor: pointer;
-    /* background-color: red; */
-    display: flex;
-    height: 40px;
-    align-items: center;
-    
-}
 
-.select-dropdown {
-    z-index: 999;
-}
-
-.option-active {
-    /* color: var(--app-primary-color); */
-    font-weight: bold;
-   
-    
-}
-
-.select-container:hover {
-    
-    border-radius: 8px;
-}
-
-/* .select-active {
-}
-
-background-color: blue; */
-
-
-
-.select-options {
-    position: absolute;
-    top: 44px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-}
-
-.select-option {
-    cursor: pointer;
-    height: 40px;
-    background-color: #a3a3a3;
-    display: flex;
-    align-items: center;
-}
-
-
-.select-option:hover {
-    background-color: #71717a;
-
-}
-
-
-
-.slide-enter-active, .slide-leave-active {
-    transition: opacity 0.3s ease;
-}
-.slide-enter-from {
+.saison-button {
+  border: 2px solid #DB1717;
+  /* border-radius: 24px; */
+  padding: 4px 12px;
+  background-color: #DB1717;
   
-  opacity: 0;
+  cursor: pointer;
 }
-.slide-leave-to {
-  
-  opacity: 1;
+
+.date-option {
+  padding: 4px 12px;
+  cursor: pointer;
 }
+
+.date-option:hover {
+  background-color: #3a2b28;
+}
+
+.saison-button:hover {
+ 
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+.options-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  top: 100%;
+  background-color: #281713;
+  color: white;
+  overflow: auto;
+  z-index: 900;
+  padding-top: 4px;
+  padding-top: 4px;
+}
+
+/* .select-container {
+  background-color: yellow;
+} */
 
 </style>

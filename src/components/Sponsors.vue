@@ -1,22 +1,4 @@
-<!-- <script setup>
-</script>
-<template>
-    <div class="sponsors-container">
-        <button class="sponsor-button">
-            <img src="../assets/chevronLeft.svg" alt="previous" class="sponsor-icon"/>
-        </button>
-        <div v-for="n in 3" class="sponsor-container">
-            x
-        </div>
-        <button class="sponsor-button">
-            <img src="../assets/chevronRight.svg" alt="next" class="sponsor-icon"/>
-        </button>
-    </div>
-</template>
 
-<style scoped>
-
-</style> -->
 
 <template>
     <div class="slider-container" @mouseover="pauseAutoSlide" @mouseleave="startAutoSlide">
@@ -45,20 +27,12 @@
 
 
   const images = ref([
-    // "/autocw.png",
-    // "/desprazsa.png",
-    // "/tapernoux.png",
-    // "/h20.png",
-    // "/sqs.png",
-    // "/viamonte.png",
     `${import.meta.env.BASE_URL}autocw.png`,
     `${import.meta.env.BASE_URL}desprazsa.png`,
     `${import.meta.env.BASE_URL}tapernoux.png`,
     `${import.meta.env.BASE_URL}h20.png`,
     `${import.meta.env.BASE_URL}sqs.png`,
-    `${import.meta.env.BASE_URL}/viamonte.png`,
-    
-
+    `${import.meta.env.BASE_URL}viamonte.png`,
   ]);
   
   const currentIndex = ref(0);
@@ -92,7 +66,7 @@ const startAutoSlide = () => {
   stopAutoSlide(); // Limpia intervalos anteriores antes de crear uno nuevo
   autoSlideInterval = setInterval(() => {
     nextSlide();
-  }, 2000);
+  }, 3000);
 };
 
 // Detener el auto-slide
@@ -130,7 +104,7 @@ onUnmounted(stopAutoSlide);
 
 .slider {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center; 
   padding: 0 10px;
   overflow: hidden;
   width: 100%; /* Ajustá el ancho según necesites */

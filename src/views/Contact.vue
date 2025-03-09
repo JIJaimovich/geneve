@@ -3,7 +3,7 @@ import AppBanner from "../components/AppBanner.vue"
 
 import AppFooter from "../components/AppFooter.vue"
 
-import Sponsors from "../components/Sponsors.vue";
+import Sponsors from "../components/Sponsors.vue"
 
 </script>
 

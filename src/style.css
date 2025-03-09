@@ -9,10 +9,14 @@
 
 :root {
 
+  /* --app-primary-color: #2e2d2d; */
 
   
   --app-primary-color: #DB1717;
   --app-black-color: #281713;
+  
+
+  --app-white-color: #dddada;
 
   --app-primary-border-color: rgb(148, 13, 13);
 
@@ -82,7 +86,7 @@ main {
   /* min-height: 90vh; */
   height: 100%;
   /* background-color: rgb(226, 226, 194); */
-  min-height: calc(100vh - 120px);
+  /* min-height: calc(100vh - 120px); */
   
 }
 
