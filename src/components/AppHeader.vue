@@ -46,13 +46,13 @@ const mobileNav = ref(false)
 <template>
     <header>
 
-        <nav>
+        <nav class="px-[4px] xl:px-[40px]">
             <div class="container-left flex ">
-                <div class="logo-section flex gap-8">
+                <div v-if=" screenWidth > appLg" class="logo-section flex gap-2 xl:gap-4">
                     <div class="link-container">
                         <RouterLink to="/" class="link" > 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
-                                <span class="text-sm sm:text-lg">Home</span>
+                                <span class="text-md xl:text-lg">Home</span>
                                 <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>   
                             </div>
                         </RouterLink>
@@ -60,7 +60,7 @@ const mobileNav = ref(false)
                     <div class="link-container">
                         <RouterLink to="/equipes" class="link" > 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
-                                <span class="text-sm sm:text-lg">Equipes</span>
+                                <span class="text-md xl:text-lg">Equipes</span>
                                 <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>   
                             </div>
                         </RouterLink>
@@ -68,7 +68,7 @@ const mobileNav = ref(false)
                     <div class="link-container">
                         <RouterLink to="/club" class="link" > 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
-                                <span class="text-sm sm:text-lg">Le Club</span>
+                                <span class="text-md xl:text-lg">Le Club</span>
                                 <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>
                             </div>
                         </RouterLink>
@@ -76,7 +76,7 @@ const mobileNav = ref(false)
                     <div class="link-container">
                         <RouterLink to="/contact" class="link" > 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
-                                <span class="text-sm sm:text-lg">Contact</span>
+                                <span class="text-md xl:text-lg">Contact</span>
                                 <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>
                             </div>
                         </RouterLink>
@@ -85,7 +85,7 @@ const mobileNav = ref(false)
                 </div>
             </div>
 
-            <div class="container-mid flex justify-center items-center gap-4">
+            <div class="container-mid flex justify-center items-center gap-4" v-if=" screenWidth > appLg">
                 <img src="../assets/facebook.svg" alt="facebook" class="social-icon"/>
                 <img src="../assets/instagram.svg" alt="instagram" class="social-icon"/>
                 <img src="../assets/google.svg" alt="google" class="social-icon"/>
@@ -95,9 +95,10 @@ const mobileNav = ref(false)
                     
                    
                 <RouterLink to="/" 
-                class="link"                                     
+                class="link"
+                v-if=" screenWidth > appLg"                                     
                 >
-                <button class="donation-button">Soutenir</button>
+                <button class="donation-button text-md">Soutenir</button>
                    
                 </RouterLink>
                         
@@ -179,7 +180,7 @@ nav{
   /* max-width: 1800px; */
   /* sacar*/
   color: white;
-  padding: 0 40px;
+  /* padding: 0 40px; */
 }
 
 

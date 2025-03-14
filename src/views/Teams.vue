@@ -97,7 +97,20 @@ onMounted(()=>{
            
           </div>
 
-          <div class="flex flex-col h-[550px] w-1/3 gap-1">
+          <div 
+          class="flex flex-col w-1/3 bg-[#DB1717]  cursor-pointer"
+          @click="onSelectTeam('histoire')"
+          >
+            <div class="flex h-[50px] justify-center items-center">
+              <p class="text-3xl font-medium text-white">US Genève-Ville Histoire</p>
+            </div>
+            <div class="flex h-[500px] w-full overflow-hidden relative">
+              <img src="/deuxemie/2013-2014/imagen_005.jpg" alt="premiere" class="w-full h-full object-cover object-center">
+              <!-- `${import.meta.env.BASE_URL}2017/1er-2017-1.jpg`, -->
+            </div>
+          </div>
+
+          <!-- <div class="flex flex-col h-[550px] w-1/3 gap-1">
             <div
             @click="onSelectTeam('deuxieme')" 
             class="flex flex-col h-[273px] bg-[#DB1717] cursor-pointer">
@@ -123,12 +136,9 @@ onMounted(()=>{
                 <p class="absolute bg-lime-200 py-2 px-4 rounded-sm bottom-2 left-2 font-medium text-lime-900 border border-lime-600">Mémoire d'équipe</p>
 
               </div>
-              <!-- <p 
-               class="text-3xl font-medium"
               
-              >US Genève-Ville Senior +40</p> -->
             </div>
-          </div>
+          </div> -->
       </div>
   
        

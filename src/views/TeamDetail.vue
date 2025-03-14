@@ -16,7 +16,7 @@ import {
   teamsSeasons,
   premiere2017,
   premiere2014,
-  senior402017,
+  //senior402017,
   senior302013,
   senior302010,
   deuxemie2013,
@@ -31,8 +31,9 @@ console.log('Team ID:', teamId.value)
 const teams = [
 { title: 'premiere', value: 'Première'},
 { title: 'senior30', value: 'Senior +30'},
-{ title: 'deuxieme', value: 'Deuxième'},
-{ title: 'senior40', value: 'Senior +40'},
+// { title: 'deuxieme', value: 'Deuxième'},
+// { title: 'senior40', value: 'Senior +40'},
+{ title: 'histoire', value: 'Histoire'},
 
 ]
 
@@ -78,12 +79,12 @@ function handleRouter(teamSelected){
     optionSeason.value = teamsSeasons.senior30   
     paginatedData.value = paginateArray(senior302013.value)
   }
-  else if(teamSelected.title === 'senior40'){ 
-    currentSeason.value = teamsSeasons.senior40[0]
-    optionSeason.value = teamsSeasons.senior40   
-    paginatedData.value = paginateArray(senior402017.value)
-  }
-  else if(teamSelected.title === 'deuxieme'){    
+  // else if(teamSelected.title === 'senior40'){ 
+  //   currentSeason.value = teamsSeasons.senior40[0]
+  //   optionSeason.value = teamsSeasons.senior40   
+  //   paginatedData.value = paginateArray(senior402017.value)
+  // }
+  else if(teamSelected.title === 'histoire'){    
     currentSeason.value = teamsSeasons.deuxemie[0]
     optionSeason.value = teamsSeasons.deuxemie
     paginatedData.value = paginateArray(deuxemie2013.value)
@@ -146,16 +147,16 @@ onMounted(()=>{
     paginatedData.value = paginateArray(senior302013.value)
 
   }
-  else if(teamId.value && teamId.value === 'senior40'){
+  // else if(teamId.value && teamId.value === 'senior40'){
     
-    currentSeason.value = teamsSeasons.senior40[0]
-    optionSeason.value = teamsSeasons.senior40
+  //   currentSeason.value = teamsSeasons.senior40[0]
+  //   optionSeason.value = teamsSeasons.senior40
 
 
-    paginatedData.value = paginateArray(senior402017.value)
+  //   paginatedData.value = paginateArray(senior402017.value)
 
-  }
-  else if(teamId.value && teamId.value === 'deuxieme'){
+  // }
+  else if(teamId.value && teamId.value === 'histoire'){
     
     currentSeason.value = teamsSeasons.deuxemie[0]
     optionSeason.value = teamsSeasons.deuxemie
@@ -243,13 +244,13 @@ function handleYearSelection(selected){
     setFirstPage()
   }
   //deuxieme
-  else if(teamId.value && teamId.value === 'deuxieme' && selected === '2013-2014' ){
+  else if(teamId.value && teamId.value === 'histoire' && selected === '2013-2014' ){
     currentSeason.value = selected
     paginatedData.value = paginateArray(deuxemie2013.value)
     setFirstPage()
   }
   //deuxemie2012
-  else if(teamId.value && teamId.value === 'deuxieme' && selected === '2012-2013' ){
+  else if(teamId.value && teamId.value === 'histoire' && selected === '2012-2013' ){
     currentSeason.value = selected
     paginatedData.value = paginateArray(deuxemie2012.value)
     setFirstPage()

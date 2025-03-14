@@ -87,7 +87,38 @@ export const teamsSeasons = {
   Senior 40
   */
 
-  export const senior402017 = ref([
+  // export const senior402017 = ref([
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_001.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_003.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_005.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_006.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_007.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_008.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_009.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_010.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_011.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_012.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_013.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_014.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_015.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_016.jpg`,
+  //   `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_017.jpg`,
+  // ])
+
+  /*
+  Deuxemie
+  */
+  export const deuxemie2013 = ref([
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_001.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_002.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_003.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_004.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_005.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_006.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_007.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_008.jpg`,
+    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_009.jpg`,
+    //senior
     `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_001.jpg`,
     `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_003.jpg`,
     `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_005.jpg`,
@@ -103,21 +134,6 @@ export const teamsSeasons = {
     `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_015.jpg`,
     `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_016.jpg`,
     `${import.meta.env.BASE_URL}senior40/2017-2018/imagen_017.jpg`,
-  ])
-
-  /*
-  Deuxemie
-  */
-  export const deuxemie2013 = ref([
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_001.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_002.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_003.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_004.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_005.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_006.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_007.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_008.jpg`,
-    `${import.meta.env.BASE_URL}deuxemie/2013-2014/imagen_009.jpg`,
   ])
 
   export const deuxemie2012 = ref([

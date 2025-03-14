@@ -43,9 +43,12 @@ import Sponsors from "../components/Sponsors.vue"
                 </form>
               
             </div>
+
+            
+
           <div class="map-container flex w-full rounded-md">
             <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.3858558523!2d6.162224810845713!3d46.20277867097507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c6549beccc35b%3A0x4a53a4fa01edddc7!2sRte%20de%20Frontenex%2053%2C%201207%20Gen%C3%A8ve%2C%20Switzerland!5e0!3m2!1sen!2sar!4v1739803992932!5m2!1sen!2sar" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2762.0445167558987!2d6.0917842!3d46.1896728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c7ca7c08bc789%3A0x6f3433168c36383f!2sintercommunal%20center%20of%20sports%2C%20leisure%20and%20nature%20of%20Evaux!5e0!3m2!1sen!2sar!4v1741966614505!5m2!1sen!2sar"
             width="100%" 
             height="450" 
             style="border:0;" 

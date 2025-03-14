@@ -27,10 +27,11 @@
                         </RouterLink>
                     </div>
                     <div class="address-container flex flex-col w-full">
+                        <!-- 33 Avenue du Bois de la Chapelle 1213 Onex  -->
                         <p class="footer-title mb-4 text-base">Address</p>
-                        <p class="text-base">Route de Frontenex</p>
-                        <p class="text-base">53 - 1207</p>
-                        <p class="text-base">Genève</p>
+                        <p class="text-base">33 Avenue du Bois</p>
+                        <p class="text-base">de la Chapelle</p>
+                        <p class="text-base">1213 Onex</p>
                     </div>
                     <div class="contact-container flex flex-col w-full">
                         <p class="footer-title mb-4 text-base">Contact</p>
