@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch, ref, onMounted } from 'vue';
+import { computed, watch, ref, onMounted, onUnmounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 
@@ -25,41 +25,31 @@ import {
 
 const teamId = computed(() => route.params.teamId);
 
-console.log('Team ID:', teamId.value)
+
 
 
 const teams = [
 { title: 'premiere', value: 'Première'},
 { title: 'senior30', value: 'Senior +30'},
-// { title: 'deuxieme', value: 'Deuxième'},
-// { title: 'senior40', value: 'Senior +40'},
 { title: 'histoire', value: 'Histoire'},
 
 ]
 
-//Seniors
-let teamDetails = true
 
 
+const currentSeason =ref('')
+const optionSeason = ref([])
+const currentImgs = ref([])
+const nextOn = ref(false)
+const prevOn = ref(false)
 
-  const currentSeason =ref('')
-  const optionSeason = ref([])
-  const currentImgs = ref([])
-  const nextOn = ref(false)
-  const prevOn = ref(false)
-  
-  const paginatedData = ref([])
-  let currentPage = 0
-  let limitPage = 0
+const paginatedData = ref([])
+let currentPage = 0
+let limitPage = 0
 
-// Watch para detectar cambios en teamId
-// watch(() => route.params.teamId, (newVal, oldVal) => {
-//   console.log("teamId cambió:", oldVal, "→", newVal);
-// });
 
 function handleRouter(teamSelected){
-  console.log('team id', teamId.value)
-  console.log('team selected', teamSelected)
+ 
   if(teamId.value === teamSelected.title){
     return
   }
@@ -79,11 +69,6 @@ function handleRouter(teamSelected){
     optionSeason.value = teamsSeasons.senior30   
     paginatedData.value = paginateArray(senior302013.value)
   }
-  // else if(teamSelected.title === 'senior40'){ 
-  //   currentSeason.value = teamsSeasons.senior40[0]
-  //   optionSeason.value = teamsSeasons.senior40   
-  //   paginatedData.value = paginateArray(senior402017.value)
-  // }
   else if(teamSelected.title === 'histoire'){    
     currentSeason.value = teamsSeasons.deuxemie[0]
     optionSeason.value = teamsSeasons.deuxemie
@@ -96,10 +81,7 @@ function handleRouter(teamSelected){
 }
 
 
-
-
-
-function paginateArray(arr, pageSize = 6) {
+function paginateArray(arr, pageSize = pageQty.value) {
   const pages = [];
   
   for (let i = 0; i < arr.length; i += pageSize) {
@@ -130,7 +112,7 @@ function setFirstPage(){
 }
 
 onMounted(()=>{
-  console.log('TeamDetail mounted')
+
   
   if(teamId.value && teamId.value === 'premiere'){
     
@@ -147,15 +129,7 @@ onMounted(()=>{
     paginatedData.value = paginateArray(senior302013.value)
 
   }
-  // else if(teamId.value && teamId.value === 'senior40'){
-    
-  //   currentSeason.value = teamsSeasons.senior40[0]
-  //   optionSeason.value = teamsSeasons.senior40
-
-
-  //   paginatedData.value = paginateArray(senior402017.value)
-
-  // }
+ 
   else if(teamId.value && teamId.value === 'histoire'){
     
     currentSeason.value = teamsSeasons.deuxemie[0]
@@ -169,8 +143,6 @@ onMounted(()=>{
 
   setFirstPage()
   
-  
- 
 
 })
 
@@ -180,7 +152,7 @@ function handleGalleryControls(b){
     if(currentPage - 1 >= 0){
       currentImgs.value = paginatedData.value[currentPage - 1]
       currentPage = currentPage - 1
-      console.log('new current', currentPage)
+      
       if(!nextOn.value){
         nextOn.value = true
       }
@@ -190,17 +162,13 @@ function handleGalleryControls(b){
     }
 
   }else if(b === 'next'){
-    // console.log('***')
-    // console.log(paginatedData.value)
-    // console.log(paginatedData.value.length)
-    // console.log(currentPage)
-    // console.log(limitPage)
+    
 
     
     if(currentPage + 1 <= limitPage){
       currentImgs.value = paginatedData.value[currentPage + 1]
       currentPage = currentPage + 1
-      console.log('new current', currentPage)
+      
       if(!prevOn.value){
         prevOn.value = true
       }
@@ -213,8 +181,7 @@ function handleGalleryControls(b){
 }
 
 function handleYearSelection(selected){
-  console.log('selected emited', selected)
-  console.log('teamId', teamId.value )
+  
   currentPage = 0
   limitPage = 0
   nextOn.value = false 
@@ -257,24 +224,62 @@ function handleYearSelection(selected){
   }
 }
 
+
+// screen width
+const screenWidth = ref(window.innerWidth);
+const updateScreenWidth = () => {
+  screenWidth.value = window.innerWidth;
+}
+
+const appLg = 1280
+
+const pageQty = ref(screenWidth.value > appLg ? 6 : screenWidth.value < appLg && screenWidth.value > 700 ? 4 : 2)
+
+onMounted(() => {
+  window.addEventListener('resize', updateScreenWidth);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenWidth);
+});
+
+
+const openLink = (team) => {
+
+if(team === 'premiere'){        
+    window.open('https://matchcenter.acgf.ch/default.aspx?v=860&oid=14&lng=2&t=33666&a=trr', '_blank');
+}else {        
+    window.open('https://matchcenter.acgf.ch/default.aspx?v=860&oid=14&lng=2&t=33668&a=trr', '_blank');
+}
+};
+
 </script>
 
 <template>
 
-    <div class="flex min-h-[500px] px-[40px] w-full">
-      <div class="flex flex-col w-3/4">
+    <div class="flex flex-col xl:flex-row min-h-[500px] px-2 lg:px-[40px] w-full">
+      <div class="flex flex-col w-full xl:w-3/4">
         <!-- team bar -->
-        <div class="flex justify-between border-b-4 pt-6 pb-3 border-[var(--app-primary-color)] h-[80px] mb-4">
-          <h2 class="text-3xl font-medium">US Genève-Ville 
+        <div class="
+        flex 
+        flex-col 
+        md:flex-row 
+        justify-between 
+        border-b-4 
+        pt-6 
+        pb-3 
+        border-[var(--app-primary-color)] 
+        h-fit 
+        gap-2
+        md:gap-0
+        md:h-[80px] 
+        mb-4">
+          <h2 class="text-2xl xl:text-3xl font-medium">US Genève-Ville 
             <span class="text-[var(--app-primary-color)]">
-              {{teams.find(team => team.title === teamId)?.value || "No encontrado"}}
+             {{teams.find(team => team.title === teamId)?.value || "No encontrado"}}
             </span> 
           </h2>
-          <!-- <div class="saison-button flex items-center gap-2 ">
-            <span class="text-lg text-white">Saison</span> 
-            <span class="text-lg text-white">2017-2018</span>
-            <img src="../assets/chevron.svg" alt="chevron" class="w-[20px]">
-          </div> -->
+          
           <AppSelect 
           :current-option="currentSeason"
           :select-options="optionSeason"
@@ -286,6 +291,7 @@ function handleYearSelection(selected){
 
            <ImgGallery 
            v-if="currentImgs"
+           :screen-size="screenWidth > appLg ? 'lg' : screenWidth < appLg && screenWidth > 700 ? 'md' : 'sm'"
            :images="currentImgs" 
            :next-on="nextOn"
            :prev-on="prevOn"
@@ -296,9 +302,29 @@ function handleYearSelection(selected){
     
       </div>
   <!-- teams container -->
-   <!-- class="flex justify-center  w-1/4 pt-[80px] relative" -->
-      <div class="flex flex-col items-center w-1/4 pt-[80px] gap-[60px] relative">        
-        <div class="flex flex-col justify-center py-8 px-12 gap-5 rounded absolute z-10 h-[300px]">          
+  
+      <div class="flex flex-col items-center w-full xl:w-1/4 pt-4 xl:pt-[80px] gap-6 xl:gap-[60px] relative">        
+        <div 
+        class="
+        flex 
+        flex-col
+        md:flex-row 
+        xl:flex-col 
+        w-full 
+        xl:w-fit 
+        justify-between 
+        xl:justify-center 
+        xl:py-8 
+        xl:px-12
+        p-6
+        bg-lime-200
+        xl:bg-transparent
+        gap-5 
+        rounded 
+        relative
+        xl:absolute 
+        xl:z-10 
+        xl:h-[300px]">          
           <div 
           v-for="team in teams"
           class="flex  gap-2 cursor-pointer">
@@ -309,7 +335,7 @@ function handleYearSelection(selected){
 
                 <img src="../assets/ballSel.svg" alt="ball" class="w-[24px]">
                 <p 
-                class="text-xl uppercase tracking-wide"
+                class="text-lg xl:text-xl uppercase tracking-wide"
                 >{{ team.value }} </p>
               </div>
             </template>
@@ -324,19 +350,31 @@ function handleYearSelection(selected){
           </div>
         </div>
 
-        <FootballField />
+        <FootballField v-if="screenWidth > appLg"/>
 
         <div 
         v-if="teamId === 'premiere' || teamId === 'senior30'"
-        class="flex flex-col items-center w-[240px] gap-2 bg-[#403F3F] p-6 border-4 border-[var(--app-primary-color)]">
-          <div class="flex flex-col gap-2">
-            <div>
+        class="
+        flex
+        flex-row 
+        xl:flex-col 
+        items-center 
+        w-full 
+        xl:w-[240px] 
+        gap-2 
+        
+        bg-[#403F3F] 
+        p-6 
+        border-4 
+        border-[var(--app-primary-color)]">
+          <div class="flex flex-col md:flex-row xl:flex-col w-full justify-between  gap-2">
+            <div class="flex flex-col md:flex-row xl:flex-col gap-1 md:gap-2 xl:gap-0">
               <p class="text-xl font-medium  text-white ">US Genève-Ville</p>
               <span class="text-xl font-medium text-[var(--app-primary-color)]">
                  {{teams.find(team => team.title === teamId)?.value || "No encontrado"}}
               </span> 
             </div>
-            <div class="flex flex-col gap-1 mb-2">
+            <div  v-if="screenWidth > appLg || screenWidth < 600" class="flex flex-col gap-1 mb-2">
                 <div class="team-card-item flex items-center gap-2 text-white">
                     <img src="../assets/date.svg" alt="date" class="team-card-icon"/>    
                     <span class="team-card-span text-lg ">Calendrier</span>
@@ -355,7 +393,9 @@ function handleYearSelection(selected){
                 </div>
         
             </div>
-            <button class="result-button flex items-center gap-1">
+            <button 
+            @click="openLink(teamId)"
+            class="result-button flex items-center gap-1">
                 <img src="../assets/trophy.svg" alt="trophy" class="team-card-icon"/>    
                 <span class="text-lg">Résultat</span>
             </button>

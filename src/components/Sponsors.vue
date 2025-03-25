@@ -110,6 +110,7 @@ onUnmounted(() => {
   width: 100%;
   padding: 60px;
   background-color: rgba(248, 246, 246, 0.986);
+  gap: 16px;
 }
 
 .slider {
@@ -121,12 +122,21 @@ onUnmounted(() => {
 }
 
 .slide img {
-  width: 65%;
+  width: 100%;
   max-width: 500px;
   height: auto;
   object-fit: contain;
   scroll-snap-align: center;
   border-radius: 8px;
+}
+
+@media (min-width: 1024px) {
+  .slide img {
+  width: 65%;
+  }
+  .slider-container {
+  gap: 0;
+  }
 }
 
 .slider-btn {

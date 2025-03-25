@@ -118,12 +118,12 @@ const autoritiesList = [
        <AppBanner /> 
 
        
-       <div class="us-container flex flex-col w-full p-[40px] gap-2">        
+       <div class="us-container flex flex-col w-full py-4 px-2 xl:p-[40px] gap-2">        
           
           <h2 class="text-3xl mb-2">Équipe dirigeante:</h2>
-          <div class="authorities-section flex w-full gap-4">
+          <div class="authorities-section flex flex-col lg:flex-row w-full gap-8 lg:gap-4">
           
-            <div class="flex flex-col w-[40%]">
+            <div class="flex flex-col w-full lg:w-[40%]">
               
               <div class="flex flex-col gap-2 ">
                 <div 
@@ -139,7 +139,7 @@ const autoritiesList = [
               </div> 
             </div>
             
-            <div class="flex flex-col w-[60%]  items-start  bg-slate-200 h-fit pb-4">
+            <div class="flex flex-col w-full lg:w-[60%]  items-start  bg-slate-200 h-fit pb-4">
               <img src="../assets/img/soccer.jpg" alt="soccer" class="soccer-img rounded-t-md">
               <h2 class="text-3xl mt-4 mb-2 px-4">Notre histoire:</h2>
               <p class="text-lg mb-2 px-4"> <span class="font-bold text-[var(--app-primary-color)]">L’Union Sportive Genève-Ville Football Club (USGV)</span> possède une riche histoire qui remonte au 1er juillet 1919, lorsqu’elle fut fondée sous le nom de Union Sportive des Travailleurs de la Ville (UST Ville). Son objectif principal était d’offrir aux travailleurs un espace où ils pouvaient profiter du football et se détendre après de longues journées de travail.</p>
@@ -151,33 +151,6 @@ const autoritiesList = [
             
           </div>
        </div>
-
-       <!-- <div class="us-container flex flex-col w-full p-[40px] gap-2">
-          
-          <h2 class="text-3xl mb-2">Équipe dirigeante:</h2>
-          <div class="authorities-section flex w-full gap-4">
-          
-            <div class="flex flex-col w-[60%]">
-              
-              <div class="flex flex-col gap-2 ">
-                <div 
-                v-for="item in autoritiesList" 
-                class="flex w-full  bg-slate-200 py-2 px-3 gap-2 rounded">
-                  <div class="flex gap-1">
-                    <img src="../assets/avatar.svg" alt="avatar" class="avatar-img">
-                    <p class="text-lg font-medium">{{ item.title }}:</p>
-                  </div>
-                  <p class="text-lg">{{ item.description }} </p>
-                </div>
-              </div> 
-            </div>
-            
-            <div class="flex w-full  bg-slate-300">
-              <p>img</p>
-            </div>
-            
-          </div>
-       </div> -->
 
        <Sponsors />
     </main>

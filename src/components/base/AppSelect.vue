@@ -39,7 +39,8 @@ const buttonStyle = computed(()=>{
 })
 
 function handleSelection(option){
-   
+  //isVisible.value = false
+   emits('selectedValue', option)
 }
 
 
@@ -48,12 +49,11 @@ function handleSelection(option){
 
 <template>
   <div class="flex relative select-container"
-  @mouseenter="isVisible=true"
-  @mouseleave="isVisible=false"
+  
+  @click="isVisible=!isVisible"
   >
     <button 
    
-    @click="isVisible=!isVisible"
     
     :style="buttonStyle"
     class="saison-button flex items-center gap-2">
@@ -67,7 +67,7 @@ function handleSelection(option){
     >
       <div 
       class="date-option flex items-center gap-2"
-      @click="option !== currentOption && $emit('selectedValue', option)"
+      @click="option !== currentOption && handleSelection(option)"
       v-for="option in selectOptions">
         <template v-if="option !== currentOption">
           <span class="text-lg text-white">Saison</span> 
@@ -131,8 +131,8 @@ function handleSelection(option){
   padding-top: 4px;
 }
 
-/* .select-container {
-  background-color: yellow;
-} */
+.select-container {
+  width: fit-content;
+}
 
 </style>

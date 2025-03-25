@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import AppButtonIcon from './base/AppButtonIcon.vue';
 
 
@@ -8,7 +8,7 @@ import { useRoute } from 'vue-router';
 import LogoAppHeader from './LogoAppHeader.vue';
 
 const route = useRoute()
-const isActive = (path) => route.path === path;
+
 
 const props = defineProps({
     triggerPulse: {
@@ -17,7 +17,7 @@ const props = defineProps({
   },
 })
 
-const productAdded = ref(false)
+
 
 // screen width
 const screenWidth = ref(window.innerWidth);
@@ -50,34 +50,40 @@ const mobileNav = ref(false)
             <div class="container-left flex ">
                 <div v-if=" screenWidth > appLg" class="logo-section flex gap-2 xl:gap-4">
                     <div class="link-container">
-                        <RouterLink to="/" class="link" > 
+                        <RouterLink to="/" class="link" active-class="active-class-link"> 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
-                                <span class="text-md xl:text-lg">Home</span>
-                                <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>   
+                                <span class="text-md xl:text-lg" >Home</span>
+                                <img v-if="route.path === '/'" src="../assets/chevronAlt.svg" alt="chevron" class="chevron-icon"/>
+                                <img v-else src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>   
+
                             </div>
                         </RouterLink>
                     </div>
                     <div class="link-container">
-                        <RouterLink to="/equipes" class="link" > 
+                        <RouterLink to="/equipes" class="link" active-class="active-class-link"> 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
-                                <span class="text-md xl:text-lg">Equipes</span>
-                                <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>   
+                                <span class="text-md xl:text-lg" >Equipes </span>
+                                <img v-if="route.path.includes('/equipes')" src="../assets/chevronAlt.svg" alt="chevron" class="chevron-icon"/>
+                                <img v-else src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>  
+                                 
                             </div>
                         </RouterLink>
                     </div>
                     <div class="link-container">
-                        <RouterLink to="/club" class="link" > 
+                        <RouterLink to="/club" class="link" active-class="active-class-link"> 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
                                 <span class="text-md xl:text-lg">Le Club</span>
-                                <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>
+                                <img v-if="route.path === '/club'" src="../assets/chevronAlt.svg" alt="chevron" class="chevron-icon"/>
+                                <img v-else src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>  
                             </div>
                         </RouterLink>
                     </div>
                     <div class="link-container">
-                        <RouterLink to="/contact" class="link" > 
+                        <RouterLink to="/contact" class="link" active-class="active-class-link"> 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
                                 <span class="text-md xl:text-lg">Contact</span>
-                                <img src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>
+                                <img v-if="route.path === '/contact'" src="../assets/chevronAlt.svg" alt="chevron" class="chevron-icon"/>
+                                <img v-else src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>  
                             </div>
                         </RouterLink>
                     </div>
@@ -94,7 +100,7 @@ const mobileNav = ref(false)
             <div class="container-right flex justify-end items-center gap-2 lg:gap-8 link-menu h-full">                
                     
                    
-                <RouterLink to="/" 
+                <RouterLink to="/contact" 
                 class="link"
                 v-if=" screenWidth > appLg"                                     
                 >
@@ -124,16 +130,34 @@ const mobileNav = ref(false)
 
                     <li class="cursor-pointer text-xl"                     
                     @click="mobileNav=!mobileNav">
-                    <RouterLink to="/"  active-class="active-class-link"
-                    >Inicio</RouterLink>
+                        <RouterLink to="/"  active-class="active-class-link"
+                        >Home</RouterLink>
                     </li>                  
 
                     <li class="cursor-pointer text-xl" @click="mobileNav=!mobileNav">
-                        <RouterLink to="/cart" 
-                        
+                        <RouterLink to="/equipes"                         
                         active-class="active-class-link"
-                        >Soutenir
+                        >Equipes
+                        </RouterLink>
+                    </li>
 
+                    <li class="cursor-pointer text-xl" @click="mobileNav=!mobileNav">
+                        <RouterLink to="/club"                         
+                        active-class="active-class-link"
+                        >Le Club
+                        </RouterLink>
+                    </li>
+
+                    <li class="cursor-pointer text-xl" @click="mobileNav=!mobileNav">
+                        <RouterLink to="/contact"                         
+                        active-class="active-class-link"
+                        >Contact
+                        </RouterLink>
+                    </li>
+
+                    <li class="cursor-pointer text-xl" @click="mobileNav=!mobileNav">
+                        <RouterLink to="/contact"                        
+                        >Soutenir
                         </RouterLink>
                     </li>
                     
@@ -150,6 +174,8 @@ const mobileNav = ref(false)
 </template>
 
 <style scoped>
+
+
 
 .donation-button {
     background-color: var(--app-primary-color);
@@ -191,11 +217,7 @@ nav{
 } 
 
 
-.active-class-link {
-  /* font-weight: bold; */
-  color: var( --app-txt-active-link-color);
-  /* color: var(--app-icon-color); */
-}
+
 .link-menu {
     color: var(--app-txt-link-color);
 }

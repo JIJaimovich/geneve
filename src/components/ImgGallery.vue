@@ -18,6 +18,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  screenSize: {
+    type: String,
+    default: 'lg'
+  },
 })
 
 const emits = defineEmits(['controls'])
@@ -31,6 +35,16 @@ function handleControls(b){
   emits('controls', b)
 }
 
+const imgQty = computed(()=>{
+  if(props.screenSize === 'lg'){
+    return 6
+  }
+  else if(props.screenSize === 'md'){
+    return 4
+  }else {
+    return 2
+  }
+})
 
 
 function handleImgClick(n){
@@ -52,12 +66,15 @@ function handleImgClick(n){
   <img :src="images[selectedImg]" alt="club" class="max-w-full max-h-[80vh] object-contain mx-auto rounded-md" >
 </AppModal>
 
-<div class="">
+<div>
    
   
-  <div class="gallery grid grid-cols-3 grid-rows-2 relative bg-slate-200 rounded-md overflow-hidden">
+  <div 
+  class="gallery grid  grid-rows-2 relative bg-slate-200 rounded-md overflow-hidden"
+  :class="screenSize === 'lg' ? 'grid-cols-3' : screenSize === 'md' ? 'grid-cols-2' : 'grid-cols-1'"
+  >
     <div 
-    v-for="n in 6"
+    v-for="n in imgQty"
     @click="handleImgClick(n)"
     @mouseenter="imgHovered = n"
     @mouseleave="imgHovered = 0"
@@ -70,9 +87,9 @@ function handleImgClick(n){
             v-if="n === imgHovered"
             src="/src/assets/maximize.svg" alt="maximize" class="maximize-icon">
             
-          </template>
+        </template>
           
-        </div>
+    </div>
 
         <button 
         v-if="prevOn"
@@ -84,7 +101,7 @@ function handleImgClick(n){
         class="next-button" @click="handleControls('next')">
           <img src="../assets//chevronRight.svg" alt="next" class="chevron-icon">
         </button>
-      </div>
+    </div>
     
       
 </div>

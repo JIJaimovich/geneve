@@ -8,11 +8,17 @@ import path from 'path';
 export default defineConfig({
   plugins: [vue()],
   // base: '/geneve/',
+  server: {
+    host: '0.0.0.0',  // Permite conexiones desde otros dispositivos
+    port: 5173,       // Asegura que el puerto sea el correcto
+    strictPort: true  // Evita que cambie el puerto automáticamente
+  },
   base: process.env.NODE_ENV === 'production' ? '/geneve/' : '/',
   define: {
     '__VUE_OPTIONS_API__': true,
     '__VUE_PROD_DEVTOOLS__': false
   },
+
   css: {
     postcss: {
       plugins: [tailwindcss(), autoprefixer()],

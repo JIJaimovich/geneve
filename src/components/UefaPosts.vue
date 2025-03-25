@@ -1,16 +1,5 @@
 <script setup>
-import { ref } from "vue"
-/* 
-Actualité – Nouvelle communication entre arbitres et joueurs (45 caracteres)
-Classement – La bataille pour la première place continue (45 caracteres)
-Statistiques – Des chiffres impressionnants cette saison (45 caracteres)
 
-News – New communication between referees and players (45 characters)
-Standings – The battle for the top spot continues (45 characters)
-Statistics – Impressive numbers recorded this season (45 characters)
-
-E02020
-*/
 
 const currentYear = new Date().getFullYear()
 
@@ -31,19 +20,30 @@ const imgs = [
 `${import.meta.env.BASE_URL}uefa2.jpg`,
 `${import.meta.env.BASE_URL}uefa3.jpg`,
 
-
-// "/uefa4.jpg",
-// "/uefa2.jpg",
-// "/uefa3.jpg",
 ]
-
+const openLink = (sel) => {
+console.log('sel', sel)
+if(sel === 'Actualité'){        
+    window.open('https://www.uefa.com/uefachampionsleague/news/', '_blank');
+}
+else if(sel === 'Classement'){        
+    window.open('https://www.uefa.com/uefachampionsleague/standings/', '_blank');
+}
+else {        
+    window.open('https://www.uefa.com/uefachampionsleague/statistics/', '_blank');
+}
+};
 </script>
 
 <template>
-    <div class="uefa-container max-w-[1300px] w-full flex flex-col gap-20">
-        <h2 class="text-[#E02020] text-3xl">Les dernières news de la planète football pro</h2>
-        <div class="posts-container flex justify-between w-full max-w-[1300px] mx-auto">
-            <div v-for="n in 3" class="post-container">
+    <div 
+    class=" max-w-[1300px] w-full flex flex-col gap-20 px-2">
+        <h2 class="text-center lg:text-start text-[#E02020] text-3xl">Les dernières news de la planète football pro</h2>
+        <div class="posts-container flex flex-col lg:flex-row items-center lg:justify-between w-full max-w-[1300px] mx-auto gap-32 lg:gap-0">
+            <div 
+            v-for="n in 3" 
+            @click="openLink(titles[n-1])"
+            class="post-container cursor-pointer">
                 <img :src="imgs[n-1]" alt="uefa" class="post-img rounded-md"/>
                 <div class="post-content-container rounded-md">
                     <p class="post-title text-sm leading-none text-center text-[#DB1717]">UEFA</p>
