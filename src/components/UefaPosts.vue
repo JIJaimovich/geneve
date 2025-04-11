@@ -22,7 +22,7 @@ const imgs = [
 
 ]
 const openLink = (sel) => {
-console.log('sel', sel)
+
 if(sel === 'Actualité'){        
     window.open('https://www.uefa.com/uefachampionsleague/news/', '_blank');
 }

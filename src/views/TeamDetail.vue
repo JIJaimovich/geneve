@@ -21,6 +21,7 @@ import {
   senior302010,
   deuxemie2013,
   deuxemie2012,
+  mix,
 } from '../components/data';
 
 const teamId = computed(() => route.params.teamId);
@@ -220,6 +221,12 @@ function handleYearSelection(selected){
   else if(teamId.value && teamId.value === 'histoire' && selected === '2012-2013' ){
     currentSeason.value = selected
     paginatedData.value = paginateArray(deuxemie2012.value)
+    setFirstPage()
+  }
+  //mix
+  else if(teamId.value && teamId.value === 'histoire' && selected === 'Plusieurs' ){
+    currentSeason.value = selected
+    paginatedData.value = paginateArray(mix.value)
     setFirstPage()
   }
 }

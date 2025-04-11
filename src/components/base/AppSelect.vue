@@ -56,9 +56,11 @@ function handleSelection(option){
    
     
     :style="buttonStyle"
-    class="saison-button flex items-center gap-2">
-        <span class="text-lg text-white">Saison</span> 
-        <span class="text-lg text-white">{{ currentOption }}</span>
+    class="saison-button flex items-center justify-between  min-w-[210px]">
+        <div class="flex gap-2">
+          <span class="text-lg text-white">Saison</span> 
+          <span class="text-lg text-white">{{ currentOption }}</span>
+        </div>
         <img src="../../assets/chevron.svg" alt="chevron" class="w-[20px]">
     </button> 
     <div
@@ -66,17 +68,22 @@ function handleSelection(option){
     class="options-container"
     >
       <div 
-      class="date-option flex items-center gap-2"
+      class="date-option flex items-center justify-between  min-w-[210px]"
       @click="option !== currentOption && handleSelection(option)"
       v-for="option in selectOptions">
         <template v-if="option !== currentOption">
-          <span class="text-lg text-white">Saison</span> 
-          <span class="text-lg text-white">{{ option }}</span>
+          <div class="flex gap-2">
+            <span class="text-lg text-white">Saison</span> 
+            <span class="text-lg text-white">{{ option }}</span>
+          </div>
+
           <img src="../../assets/date.svg" alt="chevron" class="w-[20px]">        
         </template>    
         <template v-else>
-          <span class="text-lg text-[#DB1717]">Saison</span> 
-          <span class="text-lg text-[#DB1717]">{{ option }}</span>
+          <div class="flex gap-2">   
+            <span class="text-lg text-[#DB1717]">Saison</span> 
+            <span class="text-lg text-[#DB1717]">{{ option }}</span>
+          </div>
           <img src="../../assets/dateAlt.svg" alt="chevron" class="w-[20px]">        
         </template>      
       </div>

@@ -8,7 +8,7 @@ import { ref } from "vue";
 
 export const teamsSeasons = {
   premiere: ['2017-2018', '2014-2015',],
-  deuxemie: ['2013-2014', '2012-2013',],
+  deuxemie: ['2013-2014', '2012-2013', 'Plusieurs'],
   senior30: ['2012-2013', '2010-2011',],
   senior40: ['2017-2018',],
 
@@ -81,6 +81,20 @@ export const teamsSeasons = {
     `${import.meta.env.BASE_URL}senior30/2010-2011/imagen_009.jpg`,
     `${import.meta.env.BASE_URL}senior30/2010-2011/imagen_010.jpg`,
     `${import.meta.env.BASE_URL}senior30/2010-2011/imagen_011.jpg`,
+  ])
+
+  /*
+  Mix
+  */
+
+  export const mix = ref([
+    `${import.meta.env.BASE_URL}mix/img01.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img02.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img03.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img04.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img05.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img06.jpeg`,
+    
   ])
 
   /*
