@@ -109,7 +109,9 @@ const openLink = (team) => {
             
                 </div>
                 <button 
-                class="result-button flex items-center gap-2 mt-2">
+                class="result-button flex items-center gap-2 mt-2"
+                @click="openLink(team.title)"
+                >
                     <img src="../assets/trophy.svg" alt="trophy" class="team-card-icon"/>    
                     <span class="text-xl lg:text-2xl ">Résultat</span>
                 </button>
