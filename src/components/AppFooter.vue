@@ -19,12 +19,15 @@
                         <RouterLink to="/club" class="link text-base" active-class="active-class-link"> 
                         Le Club       
                         </RouterLink>
+                        <RouterLink to="/sponsors" class="link text-base" active-class="active-class-link"> 
+                        Sponsors       
+                        </RouterLink>
                         <RouterLink to="/contact" class="link text-base" active-class="active-class-link"> 
                         Contact       
                         </RouterLink>
-                        <RouterLink to="/contact" class="link text-base" > 
+                        <!-- <RouterLink to="/contact" class="link text-base" > 
                         Soutenir       
-                        </RouterLink>
+                        </RouterLink> -->
                     </div>
                     <div class="address-container flex flex-col w-full">
                         <!-- 33 Avenue du Bois de la Chapelle 1213 Onex  -->

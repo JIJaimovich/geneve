@@ -79,6 +79,15 @@ const mobileNav = ref(false)
                         </RouterLink>
                     </div>
                     <div class="link-container">
+                        <RouterLink to="/sponsors" class="link" active-class="active-class-link"> 
+                            <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
+                                <span class="text-md xl:text-lg">Sponsors</span>
+                                <img v-if="route.path === '/sponsors'" src="../assets/chevronAlt.svg" alt="chevron" class="chevron-icon"/>
+                                <img v-else src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>  
+                            </div>
+                        </RouterLink>
+                    </div>
+                    <div class="link-container">
                         <RouterLink to="/contact" class="link" active-class="active-class-link"> 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
                                 <span class="text-md xl:text-lg">Contact</span>
@@ -91,11 +100,11 @@ const mobileNav = ref(false)
                 </div>
             </div>
 
-            <div class="container-mid flex justify-center items-center gap-4" v-if=" screenWidth > appLg">
+            <!-- <div class="container-mid flex justify-center items-center gap-4" v-if=" screenWidth > appLg">
                 <img src="../assets/facebook.svg" alt="facebook" class="social-icon"/>
                 <img src="../assets/instagram.svg" alt="instagram" class="social-icon"/>
                 <img src="../assets/google.svg" alt="google" class="social-icon"/>
-            </div>
+            </div> -->
            
             <div class="container-right flex justify-end items-center gap-2 lg:gap-8 link-menu h-full">                
                     
@@ -145,6 +154,13 @@ const mobileNav = ref(false)
                         <RouterLink to="/club"                         
                         active-class="active-class-link"
                         >Le Club
+                        </RouterLink>
+                    </li>
+
+                    <li class="cursor-pointer text-xl" @click="mobileNav=!mobileNav">
+                        <RouterLink to="/sponsors"                         
+                        active-class="active-class-link"
+                        >Sponsors
                         </RouterLink>
                     </li>
 

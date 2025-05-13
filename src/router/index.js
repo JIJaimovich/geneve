@@ -6,6 +6,7 @@ import Us from '@/views/Us.vue';
 import Contact from '@/views/Contact.vue';
 import Cart from '@/views/Cart.vue';
 import TeamDetail from '@/views/TeamDetail.vue';
+import SponsorsView from '../views/SponsorsView.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -21,6 +22,7 @@ const routes = [
   },
   { path: '/club', component: Us },
   { path: '/contact', component: Contact },
+  { path: '/sponsors', component: SponsorsView },
 
 
 
