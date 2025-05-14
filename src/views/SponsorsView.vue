@@ -10,6 +10,14 @@ import Sponsors from "../components/Sponsors.vue"
 const sponsorsList = ref([
 
   {
+    name: 'DALLOYEAU',
+    url: `${import.meta.env.BASE_URL}dalloy.png`,
+    description: "Entreprise familiale également spécialisée dans le domaine Sanitaire, Didier Dalloyeau, fondateur de l’entreprise et son fils Norman, ont récemment fêté leurs dix ans d’existence. Ils sauront vous apporter leur expertise pour mener à bien vos plus beaux projets. Avenantes et sérieuses, leurs équipes vous apporteront à n’en pas douter satisfaction.",
+    link: "https://www.dalloyeau.ch/",
+    more: "",
+    opened: false,
+  },
+  {
     name: 'Autocolor',
     url: `${import.meta.env.BASE_URL}autocw.png`,
     description: "AUTOCOLOR sarl concrétise son engagement en faveur de l’environnement par de nombreuses initiatives. L’entreprise est consciente que son domaine d’activités lié aux peintures automobiles, industrielles et aux activités polluantes assimilées peut porter atteinte à l’environnement.",
@@ -162,7 +170,7 @@ const openLink = (link) => {
                    <img src="../assets/avatarAlt.svg" alt="avatar" class="icon-img">
                    <div class="flex flex-col">
                      <p class="text-md font-medium text-gray-900">Gaëtan Vuaillat <span class="text-sm text-gray-500">Vice-President & Sponsorship Manager</span></p>
-                     <p class="text-lg  text-gray-700"> ciro.rapisardi@usgeneve-ville.com </p>                
+                     <p class="text-lg  text-gray-700">gaetan.vuaillat81@gmail.com</p>                
                    </div>
                  </div>
            </div>
@@ -173,7 +181,7 @@ const openLink = (link) => {
                    <img src="../assets/location.svg" alt="place" class="icon-img">
                    <div class="flex flex-col">
                      <p class="text-md font-medium text-gray-900">Address</p>
-                     <p class="text-lg  text-gray-700"> Route de Frontenex 53, 1207 Geneva </p>                
+                     <p class="text-lg  text-gray-700"> 33 Avenue du Bois de la Chapelle 1213 Onex </p>                
                    </div>
                  </div>
            </div> 
