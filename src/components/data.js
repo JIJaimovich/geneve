@@ -94,6 +94,13 @@ export const teamsSeasons = {
     `${import.meta.env.BASE_URL}mix/img04.jpeg`,
     `${import.meta.env.BASE_URL}mix/img05.jpeg`,
     `${import.meta.env.BASE_URL}mix/img06.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img07.jpg`,
+    `${import.meta.env.BASE_URL}mix/img08.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img09.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img10.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img11.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img12.jpeg`,
+    `${import.meta.env.BASE_URL}mix/img13.jpeg`,
     
   ])
 

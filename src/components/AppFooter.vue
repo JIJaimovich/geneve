@@ -39,10 +39,11 @@
                     <div class="contact-container flex flex-col w-full">
                         <p class="footer-title mb-4 text-base">Contact</p>
                         <div class="flex gap-2">
-                            <img src="../assets/contact.svg" alt="contact" class="contact-icon"/>
-                            <img src="../assets/wap.svg" alt="whatsapp" class="contact-icon"/>
-                            <img src="../assets/phone.svg" alt="phone" class="contact-icon"/>
-
+                            <!-- <img src="../assets/wap.svg" alt="whatsapp" class="contact-icon"/>
+                            <img src="../assets/phone.svg" alt="phone" class="contact-icon"/> -->
+                            <RouterLink to="/contact" class="link text-base"> 
+                                <img src="../assets/contact.svg" alt="contact" class="contact-icon"/>
+                            </RouterLink>
 
                             
                         </div>
@@ -50,9 +51,15 @@
                     <div class="social-container flex flex-col w-full">
                         <p class="footer-title mb-4 text-base">Social Media</p>
                         <div class="flex gap-2">
-                            <img src="../assets/facebook.svg" alt="facebook" class="social-icon"/>
-                            <img src="../assets/instagram.svg" alt="instagram" fill="white" class="social-icon"/>
-                            <img src="../assets/google.svg" alt="google" class="social-icon"/>
+                            <RouterLink to="/contact" class="link text-base"> 
+                              
+                                <img src="../assets/facebook.svg" alt="facebook" class="social-icon"/>
+                            </RouterLink>
+                            <RouterLink to="/contact" class="link text-base"> 
+                                <img src="../assets/instagram.svg" alt="instagram" fill="white" class="social-icon"/>
+                                
+                            </RouterLink>
+                            <!-- <img src="../assets/google.svg" alt="google" class="social-icon"/> -->
                         </div>
                     </div>
                 </div>
@@ -61,7 +68,7 @@
                     <div class="kublai w-full xl:w-[80%]">
                         <p class="copy-right text-base">©2025 
                             <a 
-                            class="bg-gradient-to-r from-[#17619E] via-[#00B0B5] to-[#F7981F] text-transparent bg-clip-text text-lg font-bold drop-shadow-lg"
+                            class="text-[#17619E] text-lg font-bold drop-shadow-lg"
                             href="https://kublai-vision.de/" 
                             target="_blank" 
                             rel="noopener noreferrer">Kublai Digital Services</a>. All Right Reserved.</p>

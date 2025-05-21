@@ -87,7 +87,7 @@ const mobileNav = ref(false)
                             </div>
                         </RouterLink>
                     </div>
-                    <div class="link-container">
+                    <!-- <div class="link-container">
                         <RouterLink to="/contact" class="link" active-class="active-class-link"> 
                             <div class="flex items-center  sm:gap-1 flex-col sm:flex-row">
                                 <span class="text-md xl:text-lg">Contact</span>
@@ -95,7 +95,7 @@ const mobileNav = ref(false)
                                 <img v-else src="../assets/chevron.svg" alt="chevron" class="chevron-icon"/>  
                             </div>
                         </RouterLink>
-                    </div>
+                    </div> -->
                     <!-- <p>Current route: {{ $route.path }}</p>     -->
                 </div>
             </div>
@@ -113,7 +113,7 @@ const mobileNav = ref(false)
                 class="link"
                 v-if=" screenWidth > appLg"                                     
                 >
-                <button class="donation-button text-md">Soutenir</button>
+                <button class="donation-button text-md">Contact</button>
                    
                 </RouterLink>
                         
@@ -171,11 +171,11 @@ const mobileNav = ref(false)
                         </RouterLink>
                     </li>
 
-                    <li class="cursor-pointer text-xl" @click="mobileNav=!mobileNav">
+                    <!-- <li class="cursor-pointer text-xl" @click="mobileNav=!mobileNav">
                         <RouterLink to="/contact"                        
                         >Soutenir
                         </RouterLink>
-                    </li>
+                    </li> -->
                     
                 
                 </ul>
