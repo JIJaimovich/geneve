@@ -14,7 +14,7 @@ import Sponsors from "../components/Sponsors.vue"
        <AppBanner /> 
        <div class="contact-container flex flex-col lg:flex-row w-full px-2 py-4 xl:p-[40px] gap-[50px]">
           <div class="form-container flex w-full lg:max-w-[700px]">
-              <form action="#" method="get" class="flex flex-col w-full gap-4">
+              <form action="https://formsubmit.co/usgeneve-ville@usgeneve-ville.com" method="POST" class="flex flex-col w-full gap-4">
                     
                       <div class="col flex flex-col gap-1">
                           <label for="name" class="text-md font-medium">Nom</label>
